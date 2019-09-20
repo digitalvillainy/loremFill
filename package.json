@@ -1,7 +1,33 @@
 {
-  "name": "loremFill",
+  "name": "loremfill",
   "version": "1.0.0",
   "dependencies": {
-    "index": "^0.4.0"
-  }
+    "index": "^0.4.0",
+    "require.js": "^1.0.0",
+    "requirejs": "^2.3.6"
+  },
+  "description": "Lorem fill allows users to quickly prototype a site with temporary text.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalvillainy/loremFill.git"
+  },
+  "keywords": [
+    "lorem",
+    "ipsum",
+    "loremipsum",
+    "loremfill",
+    "lorem",
+    "fill"
+  ],
+  "author": "Roberto Rivera",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digitalvillainy/loremFill/issues"
+  },
+  "homepage": "https://github.com/digitalvillainy/loremFill#readme"
 }
