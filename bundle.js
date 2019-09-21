@@ -34,7 +34,6 @@ module.exports={
 let tag, tagAttributes, childNode, childNodeAttributes, outputText, listArr;
 let loremText = require('./lorem');
 let loremTargets = document.querySelectorAll('[lorem-fill]');
-console.log(loremTargets);
 const loremFill = {
     beingFill: function () {
         loremTargets.forEach((element) => {
@@ -78,7 +77,6 @@ const loremFill = {
                 let regx = new RegExp('{{.*');
                 let results = regx.exec(element.innerText);
                 if(!results && element.innerText !== 'Lorem'){
-                    console.log(element);
                     return;
                 } else {
                     this.cloneElements(element, Number(element.attributes['lorem-fill'].value)-1);
@@ -93,7 +91,6 @@ const loremFill = {
     outputLorem: function (cmd) {
         let regx = new RegExp('{{.*');
         let results = regx.exec(cmd);
-        console.log(cmd);
         if (results) {
             if (cmd === '{{lorem-sent}}') {
                 return loremText.sent;
@@ -102,7 +99,6 @@ const loremFill = {
             } else if (cmd === '{{lorem-list}}') {
                 return loremText.list;
             } else if (cmd === '{{lorem}}') {
-                console.log('works');
                 return loremText.fill;
             }
         } else {
