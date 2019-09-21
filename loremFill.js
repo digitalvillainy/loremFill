@@ -1,24 +1,21 @@
 let tag, tagAttributes, childNode, childNodeAttributes, outputText, listArr;
 let loremText = require('./lorem');
+let loremTargets = document.querySelectorAll('[lorem-fill]');
 const loremFill = {
     beingFill: function () {
-        let loremTargets = document.querySelectorAll('[lorem-fill]');
-        console.log(loremTargets);
         loremTargets.forEach((element) => {
-            if (element.innerHTML.trim() === undefined && element.innerHTML.trim() === '') {
+            if (element.innerHTML.trim() === undefined && element.innerHTML.trim() !== '') {
                 outputText = this.outputLorem(element.innerText);
                 tag = document.createElement(element.nodeName.toLowerCase());
                 tag.innerHTML = outputText;
                 tagAttributes = element.attributes;
                 this.cloneAttributes(tagAttributes);
-                if (element.attributes['lorem-fill'] ) {
-                    console.log(element);
+                if (element.attributes['lorem-fill'] && element.hasChildNodes()) {
                     element.innerText = outputText;
                     this.cloneElements(element, Number(element.attributes['lorem-fill'].value) - 1);
                 }
                 this.cloneElements(element, Number(element.attributes['lorem-fill'].value));
             } else if (element.hasChildNodes() && element.lastElementChild !== null) {
-                console.log(element);
                 outputText = this.outputLorem(element.innerText);
                 tag = document.createElement(element.nodeName.toLowerCase());
                 if (element.hasChildNodes()) {
@@ -44,26 +41,35 @@ const loremFill = {
                 tag.innerHTML = outputText;
                 tagAttributes = element.attributes;
                 this.cloneAttributes(tagAttributes);
-                this.cloneElements(element, Number(element.attributes['lorem-fill'].value)-1);
+                let regx = new RegExp('{{.*');
+                let results = regx.exec(element.innerText);
+                if(!results && element.innerText !== 'Lorem'){
+                    return;
+                } else {
+                    this.cloneElements(element, Number(element.attributes['lorem-fill'].value)-1);
+                }
             }
         });
     },
-    randomList:() => {
+
+    randomList: () => {
         return listArr[Math.floor(Math.random() * listArr.length)];
     },
     outputLorem: function (cmd) {
         let regx = new RegExp('{{.*');
         let results = regx.exec(cmd);
-        if (!results) {
-            return outputText = 'Lorem';
-        } else if (results) {
+        if (results) {
             if (cmd === '{{lorem-sent}}') {
                 return loremText.sent;
             } else if (cmd === '{{lorem-pg}}') {
                 return loremText.paragraph;
             } else if (cmd === '{{lorem-list}}') {
                 return loremText.list;
+            } else if (cmd === '{{lorem}}') {
+                return loremText.fill;
             }
+        } else {
+            return cmd;
         }
     },
 
