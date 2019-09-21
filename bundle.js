@@ -2,47 +2,102 @@
 let App = require('./loremFill.js');
 App.beingFill();
 
-},{"./loremFill.js":2}],2:[function(require,module,exports){
-let tag, tagAttributes, childNode, childNodeAttributes;
+},{"./loremFill.js":3}],2:[function(require,module,exports){
+module.exports={
+  "sent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "list": [
+    "Lorem",
+    " ipsum",
+    " dolor",
+    " sit",
+    " amet",
+    " consectetur",
+    " adipiscing",
+    " elit",
+    " sed",
+    " do",
+    " eiusmod",
+    " tempor",
+    " incididunt",
+    " ut",
+    " labore",
+    " et",
+    " dolore",
+    " magna",
+    " aliqua"
+  ],
+  "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+}
+
+},{}],3:[function(require,module,exports){
+let tag, tagAttributes, childNode, childNodeAttributes, outputText, listArr;
+let loremText = require('./lorem');
 const loremFill = {
     beingFill: function () {
-        // let loremText = require('./lorem');
-        let loremText = 'Lorem ipsum dolor sit amet.';
         let loremTargets = document.querySelectorAll('[lorem-fill]');
-        // let loremText = 'Lorem ipsum dolor sit amet.';
+        console.log(loremTargets);
         loremTargets.forEach((element) => {
-            if (element.innerHTML.trim() === '') {
+            if (element.innerHTML.trim() === undefined && element.innerHTML.trim() === '') {
+                outputText = this.outputLorem(element.innerText);
                 tag = document.createElement(element.nodeName.toLowerCase());
-                tag.innerHTML = loremText;
+                tag.innerHTML = outputText;
                 tagAttributes = element.attributes;
                 this.cloneAttributes(tagAttributes);
-                if (element.attributes['lorem-fill'] && element.innerHTML.trim() === '') {
-                    element.innerText = loremText;
+                if (element.attributes['lorem-fill'] ) {
+                    console.log(element);
+                    element.innerText = outputText;
                     this.cloneElements(element, Number(element.attributes['lorem-fill'].value) - 1);
-                } else {
-                    this.cloneElements(element, Number(element.attributes['lorem-fill'].value));
                 }
+                this.cloneElements(element, Number(element.attributes['lorem-fill'].value));
             } else if (element.hasChildNodes() && element.lastElementChild !== null) {
+                console.log(element);
+                outputText = this.outputLorem(element.innerText);
                 tag = document.createElement(element.nodeName.toLowerCase());
-                if (element.hasChildNodes() && element.lastElementChild !== null) {
+                if (element.hasChildNodes()) {
                     let childs = element.childNodes;
                     childs.forEach((child) => {
-                        if (child.innerText === '{{lorem-fill}}') {
-                            child.innerText = loremText;
+                        outputText = this.outputLorem(child.innerText);
+                        if (child.innerText !== '') {
+                            listArr = Array.from(outputText);
+                            child.innerText = this.randomList();
                             childNode = document.createElement(child.nodeName.toLowerCase());
                             childNodeAttributes = child.attributes;
                             this.cloneAttributes(childNodeAttributes, true);
-                            childNode.innerHTML = loremText;
+                            childNode.innerHTML = this.randomList();
                             tag.append(childNode);
                         }
-
                     });
                 }
                 this.cloneElements(element, Number(element.attributes['lorem-fill'].value) - 1);
+            } else {
+                outputText = this.outputLorem(element.innerText);
+                element.innerText = outputText;
+                tag = document.createElement(element.nodeName.toLowerCase());
+                tag.innerHTML = outputText;
+                tagAttributes = element.attributes;
+                this.cloneAttributes(tagAttributes);
+                this.cloneElements(element, Number(element.attributes['lorem-fill'].value)-1);
             }
         });
     },
-
+    randomList:() => {
+        return listArr[Math.floor(Math.random() * listArr.length)];
+    },
+    outputLorem: function (cmd) {
+        let regx = new RegExp('{{.*');
+        let results = regx.exec(cmd);
+        if (!results) {
+            return outputText = 'Lorem';
+        } else if (results) {
+            if (cmd === '{{lorem-sent}}') {
+                return loremText.sent;
+            } else if (cmd === '{{lorem-pg}}') {
+                return loremText.paragraph;
+            } else if (cmd === '{{lorem-list}}') {
+                return loremText.list;
+            }
+        }
+    },
 
     cloneElements: function (el, repeatValue) {
         let clonedParent = el;
@@ -73,4 +128,4 @@ const loremFill = {
 module.exports = loremFill;
 
 
-},{}]},{},[1]);
+},{"./lorem":2}]},{},[1]);
