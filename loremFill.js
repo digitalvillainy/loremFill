@@ -125,8 +125,9 @@ const loremFill = {
                 childNode.setAttribute(attr[i].nodeName, attr[i].nodeValue);
             }
         }
-    }
+    },
 };
 
+loremFill.beginFill();
 module.exports = loremFill;
 
