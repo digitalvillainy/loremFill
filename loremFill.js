@@ -1,6 +1,31 @@
 let tag, tagAttributes, childNode, childNodeAttributes, outputText, listArr;
-let loremText = require('./lorem');
 let loremTargets = document.querySelectorAll('[lorem-fill]');
+let loremText = {
+        "fill": "Lorem",
+        "sent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "list": [
+            "Lorem",
+            " ipsum",
+            " dolor",
+            " sit",
+            " amet",
+            " consectetur",
+            " adipiscing",
+            " elit",
+            " sed",
+            " do",
+            " eiusmod",
+            " tempor",
+            " incididunt",
+            " ut",
+            " labore",
+            " et",
+            " dolore",
+            " magna",
+            " aliqua"
+        ],
+        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    };
 const loremFill = {
     beingFill: function () {
         loremTargets.forEach((element) => {
@@ -35,18 +60,16 @@ const loremFill = {
                 }
                 this.cloneElements(element, Number(element.attributes['lorem-fill'].value) - 1);
             } else {
-                outputText = this.outputLorem(element.innerText);
-                element.innerText = outputText;
-                tag = document.createElement(element.nodeName.toLowerCase());
-                tag.innerHTML = outputText;
-                tagAttributes = element.attributes;
-                this.cloneAttributes(tagAttributes);
                 let regx = new RegExp('{{.*');
                 let results = regx.exec(element.innerText);
-                if(!results && element.innerText !== 'Lorem'){
-                    return;
-                } else {
-                    this.cloneElements(element, Number(element.attributes['lorem-fill'].value)-1);
+                if(results !== null){
+                    outputText = this.outputLorem(element.innerText);
+                    element.innerText = outputText;
+                    tag = document.createElement(element.nodeName.toLowerCase());
+                    tag.innerHTML = outputText;
+                    tagAttributes = element.attributes;
+                    this.cloneAttributes(tagAttributes);
+                    this.cloneElements(element, Number(element.attributes['lorem-fill'].value) - 1);
                 }
             }
         });
@@ -76,10 +99,16 @@ const loremFill = {
     cloneElements: function (el, repeatValue) {
         let clonedParent = el;
         let frag = document.createDocumentFragment();
+            console.log();
+
         frag.append(tag);
         let handle;
         let loremValue = repeatValue;
         for (let i = 0; i < loremValue; i++) {
+            if (tag.lastElementChild !== null) {
+                childNode.innerHTML = this.randomList();
+                tag.append(childNode);
+            }
             handle = frag.cloneNode(true);
             clonedParent.after(handle);
         }
