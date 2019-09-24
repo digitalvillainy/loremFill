@@ -1,14 +1,8 @@
 {
   "name": "loremfill",
-  "version": "1.0.0",
-  "dependencies": {
-    "index": "^0.4.0",
-    "require.js": "^1.0.0",
-    "requirejs": "^2.3.6"
-  },
-  "description": "Lorem fill allows users to quickly prototype a site with temporary text.",
-  "main": "index.js",
-  "devDependencies": {},
+  "version": "1.1.0",
+  "description": "Loremfill is a tool for fast prototyping of web pages by programmtically filling elements with filler content.",
+  "main": "loremFill.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,11 +12,11 @@
   },
   "keywords": [
     "lorem",
-    "ipsum",
-    "loremipsum",
-    "loremfill",
     "lorem",
-    "fill"
+    "fill",
+    "loremfill",
+    "loremFill",
+    "filler"
   ],
   "author": "Roberto Rivera",
   "license": "MIT",
