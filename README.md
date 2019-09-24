@@ -11,9 +11,11 @@ To install either download the package via github or through npm below:
     <script src="./loremFill.mjs"></script>
 ```
 
-Then include the following 
+or use the cdn like so:
 
-Syntax is super easy and follows conventions from other frameworks.
+```HTML
+    <script src="https://cdn.jsdelivr.net/npm/@digitalvillainy/lorem-fill@0.2.0/loremFill.mjs"></script>
+```
 
 Add the attribute lorem-fill="x" with x being any number. LoremFill will repeat the element x times only on page load and won't add more to your raw HTML file.
 
