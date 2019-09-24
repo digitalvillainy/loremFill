@@ -2,7 +2,7 @@
   "name": "loremfill",
   "version": "1.1.0",
   "description": "Loremfill is a tool for fast prototyping of web pages by programmtically filling elements with filler content.",
-  "main": "loremFill.js",
+  "main": "loremFill.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
