@@ -1,6 +1,6 @@
 {
   "name": "@digitalvillainy/lorem-fill",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "Loremfill is a tool for fast prototyping of web pages by programmtically filling elements with filler content.",
   "main": "loremFill.mjs",
   "scripts": {
@@ -23,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/digitalvillainy/loremFill/issues"
   },
-  "homepage": "https://github.com/digitalvillainy/loremFill#readme"
+  "homepage": "https://github.com/digitalvillainy/loremFill#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify-es": "^1.0.4"
+  }
 }

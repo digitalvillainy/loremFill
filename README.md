@@ -15,7 +15,7 @@ Add the attribute lorem-pg="x" with x being any number. LoremFill will repeat th
 or use the cdn like so:
 
 ```HTML
-    <script src="https://cdn.jsdelivr.net/npm/@digitalvillainy/lorem-fill@0.2.0/loremFill.mjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@digitalvillainy/lorem-fill@0.2.3/loremFill.mjs"></script>
 ```
 
 ```HTML
