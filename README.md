@@ -1,13 +1,8 @@
 # loremFill
 Lorem fill is a tool for fast prototyping of web pages by programmtically filling elements with filler content.
 
-Syntax is super easy and follows conventions from other frameworks.
+In order to install it into your project use the following: 
 
-Add the attribute lorem-pg="x" with x being any number. LoremFill will repeat the element x times only on page load and won't add more to your raw HTML file.
-
-```HTML
-    <p lorem-pg="5" class="test"></p>
-```
 ```JavaScript
     npm i @digitalvillainy/lorem-fill
 ```
@@ -18,9 +13,20 @@ or use the cdn like so:
     <script src="https://cdn.jsdelivr.net/npm/@digitalvillainy/lorem-fill@0.2.3/loremFill.mjs"></script>
 ```
 
+Be sure to include the path into your HTML.
+
 ```HTML
-    <script src="./loremFill.mjs"></script>
+    <script src="./node_modules/@digitalvillainy/lorem-fill/loremFill.mjs"></script>
 ```
+
+Syntax is super easy and follows conventions from other frameworks.
+
+Add the attribute lorem-pg="x" with x being any number. LoremFill will repeat the element x times only on page load and won't add more to your raw HTML file.
+
+```HTML
+    <p lorem-pg="5" class="test"></p>
+```
+
 ```HTML
     <p lorem-pg="5" class="test"></p>
     <h1 lorem-sent="2" class="test"></h1>
