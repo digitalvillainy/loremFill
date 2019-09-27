@@ -56,7 +56,7 @@ In addition, nested objects without text will essentially create a template for 
     </ul>
 ```
 
-This would yield 6 <li> tags each with a nested <a href="#">. The <a> tag will have the outputed text. 
+This would yield 6 list tags each with a nested anchor. The anchor tag will have the outputed text. 
 
 ```HTML
     <ul>
