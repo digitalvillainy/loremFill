@@ -8,8 +8,19 @@ Add the attribute lorem-pg="x" with x being any number. LoremFill will repeat th
 ```HTML
     <p lorem-pg="5" class="test"></p>
 ```
+```JavaScript
+    npm i @digitalvillainy/lorem-fill
+```
 
+or use the cdn like so:
 
+```HTML
+    <script src="https://cdn.jsdelivr.net/npm/@digitalvillainy/lorem-fill@0.2.0/loremFill.mjs"></script>
+```
+
+```HTML
+    <script src="./loremFill.mjs"></script>
+```
 ```HTML
     <p lorem-pg="5" class="test"></p>
     <h1 lorem-sent="2" class="test"></h1>
