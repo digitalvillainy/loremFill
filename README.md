@@ -21,6 +21,8 @@ Be sure to include the path into your HTML.
 
 Syntax is super easy and follows conventions from other frameworks.
 
+Example: https://codepen.io/digitalvillainy/pen/PoYvpmb
+
 Add the attribute lorem-pg="x" with x being any number. LoremFill will repeat the element x times only on page load and won't add more to your raw HTML file.
 
 ```HTML
