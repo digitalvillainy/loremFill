@@ -26,12 +26,5 @@
   "bugs": {
     "url": "https://github.com/digitalvillainy/loremFill/issues"
   },
-  "homepage": "https://github.com/digitalvillainy/loremFill#readme",
-  "dependencies": {
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-uglify-es": "^1.0.4",
-    "o-stream": "^0.2.2",
-    "terser": "^4.3.4"
-  }
+  "homepage": "https://github.com/digitalvillainy/loremFill#readme"
 }
