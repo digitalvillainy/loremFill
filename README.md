@@ -12,7 +12,7 @@ In order to install it into your project use the following:
 or use the cdn like so:
 
 ```HTML
-    <script src="https://cdn.jsdelivr.net/npm/@digitalvillainy/lorem-fill@0.2.6/loremFill.mjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@digitalvillainy/lorem-fill@0.2.7/loremFill.mjs"></script>
 ```
 
 Be sure to include the path into your HTML.
