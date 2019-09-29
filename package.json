@@ -1,6 +1,6 @@
 {
-  "name": "loremfill",
-  "version": "1.1.0",
+  "name": "@digitalvillainy/lorem-fill",
+  "version": "0.2.7",
   "description": "Loremfill is a tool for fast prototyping of web pages by programmtically filling elements with filler content.",
   "main": "loremFill.mjs",
   "scripts": {
@@ -16,7 +16,10 @@
     "fill",
     "loremfill",
     "loremFill",
-    "filler"
+    "filler",
+    "Temporary Text",
+    "prototype",
+    "prototyping"
   ],
   "author": "Roberto Rivera",
   "license": "MIT",
