@@ -1,6 +1,6 @@
 {
   "name": "@digitalvillainy/lorem-fill",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Loremfill is a tool for fast prototyping of web pages by programmatically filling elements with filler content.",
   "main": "loremFill.mjs",
   "scripts": {
