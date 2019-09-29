@@ -1,7 +1,7 @@
 {
   "name": "@digitalvillainy/lorem-fill",
-  "version": "0.2.7",
-  "description": "Loremfill is a tool for fast prototyping of web pages by programmtically filling elements with filler content.",
+  "version": "0.2.8",
+  "description": "Loremfill is a tool for fast prototyping of web pages by programmatically filling elements with filler content.",
   "main": "loremFill.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,6 +30,8 @@
   "dependencies": {
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-uglify-es": "^1.0.4"
+    "gulp-uglify-es": "^1.0.4",
+    "o-stream": "^0.2.2",
+    "terser": "^4.3.4"
   }
 }
