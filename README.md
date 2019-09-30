@@ -40,7 +40,7 @@ Add the attribute lorem-pg="x" with x being any number. LoremFill will repeat th
 | Markup        | output        |
 | ------------- |:-------------:| 
 | lorem="x"     | Will output a random filler word |
-| lorem-sent="x"| Creates a 8 word sentence |
+| lorem-sent="x"| Creates an 8 word sentence |
 | lorem-pg="x"  | Creates a 10 sentence paragraph |
 
 
