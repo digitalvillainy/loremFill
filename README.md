@@ -1,5 +1,5 @@
 # loremFill
-Lorem fill is a tool for fast prototyping of web pages by programmtically filling elements with filler content.
+Lorem fill is a tool for fast prototyping of web pages by programmatically filling elements with filler content.
 
 Example: https://codepen.io/digitalvillainy/pen/PoYvpmb
 
@@ -12,7 +12,7 @@ In order to install it into your project use the following:
 or use the cdn like so:
 
 ```HTML
-    <script src="https://cdn.jsdelivr.net/npm/@digitalvillainy/lorem-fill@0.2.9/loremFill.mjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@digitalvillainy/lorem-fill@0.3.1/loremFill.mjs"></script>
 ```
 
 Be sure to include the path into your HTML.
